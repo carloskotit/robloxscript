@@ -1,0 +1,34 @@
+--//commands\\--
+local remotepath = game:GetService("ReplicatedStorage")
+spawn(function ()
+    _G.autoTap = true
+    while _G.autoTap == true do
+        remotepath.Remotes.Tap:FireServer()
+    wait()
+    end
+end)
+
+
+spawn(function ()
+    _G.autorebirth = true
+    while _G.autorebirth == true do
+        local args = {
+            [1] = 1
+        }
+        
+        remotepath.Remotes.Rebirth:FireServer(unpack(args))
+        wait()   
+    end
+end)
+
+spawn(function ()
+    _G.autobuyelixr = true
+    while _G.autobuyelixr == true do
+        local args = {
+            [1] = 2
+        }
+        
+        remotepath.Remotes.Extract:FireServer(unpack(args))
+        wait(.1)            
+    end
+end)
